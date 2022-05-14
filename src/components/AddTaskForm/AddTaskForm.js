@@ -29,7 +29,7 @@ export const AddTaskForm = ({tasks}) => {
   return (
     <Form className="todo-form">
       <Input value={inputValue} onChange={e => setInputValue(e.target.value)} placeholder="Новая задача" />
-      <Button type="primary" onClick={handleAddTask}>Добавить</Button>
+      <Button type="primary" htmlType="submit" onClick={handleAddTask}>Добавить</Button>
     </Form>
   )
 }
