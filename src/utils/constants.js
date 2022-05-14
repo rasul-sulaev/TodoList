@@ -1,1 +1,1 @@
-TODOS_URL = 'https://6241d28a76c4fb91f67afcf4.mockapi.io/api/todos/';
+export const TODOS_URL = 'https://6241d28a76c4fb91f67afcf4.mockapi.io/api/todos/';

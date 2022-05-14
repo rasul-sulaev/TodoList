@@ -1,1 +1,31 @@
 .App
+	display: flex
+	flex-direction: column
+	align-items: center
+	
+.todo
+	margin: 0 auto
+	max-width: 980px
+	width: 100%
+	.title
+		margin: 20px 0
+		text-align: center
+		font-size: 28px
+		font-weight: 600
+	&-divider
+		margin: 22px 0 !important
+	&-form
+		height: 40px
+		display: flex
+		grid-gap: 16px
+		button
+			padding: 0 40px
+			height: auto
+			font-size: 16px
+	&-list
+		.ant-list-item
+			span[aria-label="delete"]
+				padding: 5px
+				transition: all 200ms ease-in-out
+				&:hover
+					transform: scale(1.25)
