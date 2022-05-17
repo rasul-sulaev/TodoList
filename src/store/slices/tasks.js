@@ -62,7 +62,8 @@ export const multipleDeleteTasks = createAsyncThunk(
 
       if (response.ok && multipleTasksList.length === deletedTasksList.length) {
         return deletedTasksList
-      } else {
+      }
+      else if (!response.ok) {
         throw new Error(`${response.status} - ${response.statusText}`);
       }
     }
