@@ -1,5 +1,6 @@
 .todo
 	margin: 0 auto
+	padding: 0 10px
 	max-width: 980px
 	width: 100%
 	.title
@@ -19,10 +20,27 @@
 			font-size: 16px
 	&-list
 		.ant-list-item
-		span[aria-label="delete"]
-			padding: 5px
-			transition: all 200ms ease-in-out
-			&:hover
-				transform: scale(1.25)
+			align-items: flex-start
+			.ant-checkbox-wrapper
+				.ant-checkbox + span
+					padding-right: 16px !important
+			span[aria-label="delete"]
+				padding: 4px 0
+				position: absolute
+				right: 16px
+				transition: all 200ms ease-in-out
+				&:hover
+					transform: scale(1.25)
 		.ant-checkbox-group
 			width: 100%
+			
+			
+			
+@media (max-width: 575px)
+	.todo
+		&-form
+			height: 32px
+			grid-gap: 10px
+			button
+				padding: 0 16px
+				font-size: 14px

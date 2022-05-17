@@ -61,7 +61,7 @@ export const multipleDeleteTasks = createAsyncThunk(
       deletedTasksList.push(task);
 
       if (response.ok && multipleTasksList.length === deletedTasksList.length) {
-        return deletedTasksList
+        return multipleTasksList
       }
       else if (!response.ok) {
         throw new Error(`${response.status} - ${response.statusText}`);
