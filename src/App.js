@@ -1,9 +1,9 @@
 import './App.sass';
-import {Task} from "./components/Task/Task";
+import {TodoView} from "./components/TodoView/TodoView";
 function App() {
   return (
     <div className="App">
-      <Task />
+      <TodoView />
     </div>
   );
 }

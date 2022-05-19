@@ -1,4 +1,4 @@
-import "./Task.sass";
+import "./TodoView.sass";
 import {AddTaskForm} from "./AddTaskForm/AddTaskForm";
 import {TasksList} from "./TasksList/TasksList";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,7 +6,7 @@ import {fetchTodos, selectTasks} from "../../store/slices/tasks";
 import {useEffect} from "react";
 import {Preloader} from "../Preloader/Preloader";
 
-export const Task = () => {
+export const TodoView = () => {
   const dispatch = useDispatch();
   const {data: tasks, isLoading, error, secondLoading} = useSelector(selectTasks);
 
