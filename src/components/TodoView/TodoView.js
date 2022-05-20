@@ -8,7 +8,7 @@ import {Preloader} from "../Preloader/Preloader";
 
 export const TodoView = () => {
   const dispatch = useDispatch();
-  const {data: tasks, isLoading, error, secondLoading} = useSelector(selectTasks);
+  const {data: tasks, isLoading, error, isFetching} = useSelector(selectTasks);
 
   useEffect(() => {
     dispatch(fetchTodos())
@@ -16,14 +16,14 @@ export const TodoView = () => {
 
 
   /** Если возникнет Ошибка **/
-  if (error !== null) return <h1>Ошибка. {error?.message}</h1>
+  if (error) return <h1>Ошибка. {error?.message}</h1>
 
   return (
     <Preloader isLoading={isLoading}>
       <section className="todo">
         <h2 className="title">Список задач</h2>
-        <AddTaskForm tasks={tasks} secondLoading={secondLoading} />
-        <TasksList tasks={tasks} secondLoading={secondLoading} />
+        <AddTaskForm tasks={tasks} isFetching={isFetching} />
+        <TasksList tasks={tasks} isFetching={isFetching} />
       </section>
     </Preloader>
   )

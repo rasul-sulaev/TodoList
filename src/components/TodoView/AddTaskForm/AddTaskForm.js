@@ -3,7 +3,7 @@ import {useState} from "react";
 import {createTask} from "../../../store/slices/tasks";
 import {useDispatch} from "react-redux";
 
-export const AddTaskForm = ({tasks, secondLoading}) => {
+export const AddTaskForm = ({tasks, isFetching}) => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
 
@@ -24,7 +24,7 @@ export const AddTaskForm = ({tasks, secondLoading}) => {
   }
 
   return (
-    <Spin spinning={secondLoading === 'pending-createTask'}>
+    <Spin spinning={isFetching === 'pending-createTask'}>
       <Form className="todo-form">
         <Input value={inputValue} onChange={e => setInputValue(e.target.value)} placeholder="Новая задача" />
         <Button type="primary" htmlType="submit" onClick={handleAddTask}>Добавить</Button>

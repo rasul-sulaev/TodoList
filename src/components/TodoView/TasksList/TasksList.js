@@ -6,7 +6,7 @@ import {useReducer} from "react";
 import {multipleDeleteTasks, deleteTask} from "../../../store/slices/tasks";
 import {useDispatch} from "react-redux";
 
-export const TasksList = ({tasks, secondLoading}) => {
+export const TasksList = ({tasks, isFetching}) => {
   const dispatch = useDispatch();
 
   const [checkedData, setCheckedData] = useReducer((checkedData, newCheckedData) => {
@@ -79,7 +79,7 @@ export const TasksList = ({tasks, secondLoading}) => {
           onChange={handleCheckAll}
         >Выбрать все</Checkbox>
       )}
-      <Spin spinning={secondLoading === 'pending-deleteTask' || secondLoading === 'pending-multipleDeleteTasks'}>
+      <Spin spinning={isFetching === 'pending-deleteTask' || isFetching === 'pending-multipleDeleteTasks'}>
         <List
           className="todo-list"
           size="small"

@@ -76,7 +76,7 @@ const tasksSlice = createSlice({
     data: [], // массив данных
     isLoading: false, // Статус загрузки поступления постов
     error: null, // Ошибка при API запросах
-    secondLoading: '' // Допольнительный статус выполенения запросов
+    isFetching: '' // Допольнительный статус выполенения запросов
   },
   extraReducers: builder => {
     builder
@@ -95,43 +95,43 @@ const tasksSlice = createSlice({
 
       // Дабавление новой задачи
       .addCase(createTask.pending, (state, action) => {
-        state.secondLoading = 'pending-createTask'
+        state.isFetching = 'pending-createTask'
       })
       .addCase(createTask.fulfilled, (state, action) => {
         state.data = [...state.data, action.payload]
-        state.secondLoading = 'fulfilled-createTask'
+        state.isFetching = 'fulfilled-createTask'
       })
       .addCase(createTask.rejected, (state, action) => {
         state.error = action.error;
-        state.secondLoading = 'rejected-createTask'
+        state.isFetching = 'rejected-createTask'
       })
 
       // Удалеине задачи
       .addCase(deleteTask.pending, (state, action) => {
-        state.secondLoading = 'pending-deleteTask';
+        state.isFetching = 'pending-deleteTask';
       })
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.data = state.data.filter(task => task.id !== action.payload.id);
-        state.secondLoading = 'fulfilled-deleteTask';
+        state.isFetching = 'fulfilled-deleteTask';
       })
       .addCase(deleteTask.rejected, (state, action) => {
         state.error = action.error;
-        state.secondLoading = 'rejected-deleteTask';
+        state.isFetching = 'rejected-deleteTask';
       })
 
       // Множественное удаление задач
       .addCase(multipleDeleteTasks.pending, (state, action) => {
-        state.secondLoading = 'pending-multipleDeleteTasks';
+        state.isFetching = 'pending-multipleDeleteTasks';
       })
       .addCase(multipleDeleteTasks.fulfilled, (state, action) => {
         for (const payloadTask of action.payload) {
           state.data = state.data.filter(task => task.id !== payloadTask.id)
         }
-        state.secondLoading = 'fulfilled-multipleDeleteTasks';
+        state.isFetching = 'fulfilled-multipleDeleteTasks';
       })
       .addCase(multipleDeleteTasks.rejected, (state, action) => {
         state.error = action.error;
-        state.secondLoading = 'rejected-multipleDeleteTasks';
+        state.isFetching = 'rejected-multipleDeleteTasks';
       })
   }
 })
